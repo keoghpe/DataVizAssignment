@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="earthquakeApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Earthquakes + AngularJS + D3.js</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="app.js"></script>
+
+    <style type="text/css">
+
+      .sidebar {
+           position: fixed;
+           width: 100%;
+           height: 400px;
+           float: bottom;
+       }
+       .content {
+           margin-left: 200px;
+           height: 100%;
+           width: auto;
+           position: relative;
+           overflow: auto;
+           z-index: 1;
+       }
+
+      h2{
+        font-family: 'Helvetica';
+      }
+      .country{
+        fill: rgba(0, 255, 0, 0.05);
+        stroke: black;
+        -webkit-text-stroke-width: .1px;
+        stroke-width: .1px;
+      }
+      circle{
+        stroke: rgba(0, 0, 0, 0.1);
+        -webkit-text-stroke-width: .1px;
+        stroke-width: .1px;
+      }
+      circle:hover{
+        stroke: rgba(0, 0, 0, 1);
+        stroke-width:1px;
+      } 
+    </style>
+  </head>
+  <body ng-controller="AppCtrl">
+    <div class="sidebar">
+      <p>Title: {{details.title}}</p>
+      <p>Magnitude: {{details.mag}}</p>
+      <p>Place: {{details.place}}</p>
+      <p>Time: {{details.time | date:'medium'}}</p>
+      <p>Magnitude: {{details.mag}}</p>
+    </div>
+    <div class="content">
+      <h1>Earthquake Map</h1>
+      <button ng-click="showreport = !showreport">Show Report</button>
+      <button ng-click="tohoku()">Tohoku</button>
+      <button ng-click="sichuan()">Sichuan</button>
+      <button ng-click="haiti()">Haiti</button>
+      <button ng-click="scale = scale/10">Reduce size</button>
+      <button ng-click="scale = scale*10">Increase size</button>
+
+      <form ng-submit="getEarthquakeData()">
+        Minimum Magnitude: <input ng-model="minmagnitude"></input>
+        Maximum Magnitude: <input ng-model="maxmagnitude"></input>
+        Start Year: <input ng-model="startdate.year"></input>
+        Start Month: <input ng-model="startdate.month"></input>
+        Start Day: <input ng-model="startdate.day"></input>
+        End Year: <input ng-model="enddate.year"></input>
+        End Month: <input ng-model="enddate.month"></input>
+        End Day: <input ng-model="enddate.day"></input>
+        <input type="submit" value="Get Data" ng-disabled="freeze">
+      </form>
+      <img src="Images/omg.jpg" ng-show="error">
+      <p class="error">{{error}}</p>
+      <p ng-show="showreport">I decided to rotate the projection 180 degrees to have the viewer focus on the pacific. I originally started by attempting to show size by using the radius of the circle and frequency by the opacity of the colour. However, when I showed this to people they immediately thought that the deeper colour is where the strongest earthquakes happen. I could load some interesting presets to show the data.
+      </p>
+      <!-- Here's where our visualization will go -->
+      <eq-visualisation></eq-visualization>
+
+    </div> 
+  </body>
+</html>
