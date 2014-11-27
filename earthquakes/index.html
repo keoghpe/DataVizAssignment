@@ -42,7 +42,25 @@
       circle:hover{
         stroke: rgba(0, 0, 0, 1);
         stroke-width:1px;
-      } 
+      }
+
+      .axis path{ 
+        fill:none;
+        stroke: black;
+      }
+      .axis {
+        font-size:8pt;
+        font-family:sans-serif; 
+      }
+      .tick { 
+        fill:none;
+        stroke:black;
+      }
+
+      .current{
+        fill: green;
+        opacity: 1;
+      }
     </style>
   </head>
   <body ng-controller="AppCtrl">
@@ -59,8 +77,8 @@
       <button ng-click="tohoku()">Tohoku</button>
       <button ng-click="sichuan()">Sichuan</button>
       <button ng-click="haiti()">Haiti</button>
-      <button ng-click="scale = scale/10">Reduce size</button>
-      <button ng-click="scale = scale*10">Increase size</button>
+      <button ng-click="scale = scale/3">Reduce size</button>
+      <button ng-click="scale = scale*3">Increase size</button>
 
       <form ng-submit="getEarthquakeData()">
         Minimum Magnitude: <input ng-model="minmagnitude"></input>
@@ -75,10 +93,15 @@
       </form>
       <img src="Images/omg.jpg" ng-show="error">
       <p class="error">{{error}}</p>
-      <p ng-show="showreport">I decided to rotate the projection 180 degrees to have the viewer focus on the pacific. I originally started by attempting to show size by using the radius of the circle and frequency by the opacity of the colour. However, when I showed this to people they immediately thought that the deeper colour is where the strongest earthquakes happen. I could load some interesting presets to show the data.
+      <eq-visualisation></eq-visualisation>
+      <eq-scatter></eq-scatter>
+      <div ng-show="showreport">
+        <h3>Report</h3>
+        <img src="Images/Rplot.png">
+        <p>I decided to rotate the projection 180 degrees to have the viewer focus on the pacific. I originally started by attempting to show size by using the radius of the circle and frequency by the opacity of the colour. However, when I showed this to people they immediately thought that the deeper colour is where the strongest earthquakes happen. I could load some interesting presets to show the data. This visualisation isn't getting the point I want to get across across really. I want to convey that the earthquakes that are happening really frequently are really insignificant but the ones happening infrequently are really destructive. I've decided to set up a rule where the blue and purple earthquakes can only get so big.
       </p>
-      <!-- Here's where our visualization will go -->
-      <eq-visualisation></eq-visualization>
+      </div>
+      
 
     </div> 
   </body>
