@@ -1,6 +1,23 @@
-var Network = function() {
-	var width = 1000;
-	var height = 1000;
+var Network = function(myConfig) {
+	var mywidth, myheight, myactorcolour, myfilmcolour, myactorradius, myfilmradius, mycharge, mydistance;
+	if (myConfig) {
+		mywidth = myConfig.width;
+		myheight = myConfig.height;
+		myactorradius = myConfig.actorRadius;
+		myfilmradius = myConfig.filmRadius;
+		myactorcolour = myConfig.actorColour;
+		myfilmcolour = myConfig.filmColour;
+		mycharge = myConfig.charge;
+		mydistance = myConfig.distance;
+	}
+	var width = mywidth || 1000;
+	var height = myheight || 1000;
+	var actorRadius = myactorradius || 5;
+	var filmRadius = myfilmradius || 5;
+	var actorColour = myactorcolour || "green";
+	var filmColour = myfilmcolour || "red";
+	var charge = mycharge || -100;
+	var linkDistance = mydistance || 50;
 
 	var force = d3.layout.force();
 
@@ -24,14 +41,16 @@ var Network = function() {
 					.attr("width", width)
 					.attr("height", height);
 
+		var defs = vis.append("defs");
+
 		linksG = vis.append("g").attr("id", "links");
 		nodesG = vis.append("g").attr("id", "nodes");
 
 		force.size([width,height]);
 
 		force.on("tick", forceTick)
-        .charge(-200)
-        .linkDistance(30);
+        .charge(charge)
+        .linkDistance(linkDistance);
 
 		update();
 	};
@@ -88,15 +107,15 @@ var Network = function() {
 			.attr("class", "node")
 			.attr("cx", function(d){ return d.x; })
 			.attr("cy", function(d){ return d.y; })
-			.attr("r", function(d){return d.type === "actor" ? 20 : 5; })
+			.attr("r", function(d){return d.type === "actor" ? actorRadius : filmRadius; })
 			.attr("id", function(d){return d.id; })
-			.style("fill", function(d){return d.type === "actor" ? "green" : "red";})
+			.style("fill", function(d){return d.type === "actor" ? actorColour : filmColour;})
 			.style("stroke", "black")
 			.style("stroke-width", 1.0).on("mouseover", function (d) {
 				d3.select("svg").append("text")
 				.text(d.name)
-				.attr("x", d.x)
-				.attr("y", d.y)
+				.attr("x", d.x+3)
+				.attr("y", d.y+10)
 				.attr("id", "nodedescription");
 			})
 			.on("mouseleave", function (d) {
@@ -135,9 +154,23 @@ var Network = function() {
 	return network;
 };
 
+d3.json("parsedcommon.json", function(data) {
+
+	var myNetwork = Network({charge: -500, distance: 100});
+
+	myNetwork("#visone", data);
+});
+
 d3.json("parsed.json", function(data) {
 
 	var myNetwork = Network();
 
-	myNetwork("#vis", data);
+	myNetwork("#vistwo", data);
+});
+
+d3.json("showmovies.json", function(data) {
+
+	var myNetwork = Network({filmRadius:5, actorRadius:2, distance: 30});
+
+	myNetwork("#visthree", data);
 });

@@ -3,8 +3,6 @@ import csv, json
 films = []
 actors = []
 
-actors_array = ["Will Ferrell", "Zach Galifianakis", "John C. Reilly", "Vince Vaughn", "Paul Rudd", "Jason Segel", "Danny McBride", "Mila Kunis", "Megan Fox", "Leslie Mann", "Jackie Chan","Jonah Hill", "Seth Rogen", "Russell Brand", "Bruce Lee", "Clint Eastwood", "Daniel Radcliffe", "Emma Watson", "Morgan Freeman"]
-
 def generate_id(a_string):
 	an_id = a_string.lower()
 	an_id = an_id.replace(" ", "_")
@@ -18,9 +16,8 @@ def generate_id(a_string):
 with open('freebase_performances.csv') as csvfile:
 	reader = csv.DictReader(csvfile)
 	for row in reader:
-		if row['actor_name'] in actors_array:
-			films.append(row['film_name'])
-			actors.append(row['actor_name'])
+		films.append(row['film_name'])
+		actors.append(row['actor_name'])
 		
 unique_films = set(films)
 unique_actors = set(actors)
@@ -38,10 +35,9 @@ links = []
 with open('freebase_performances.csv') as csvfile:
 	reader = csv.DictReader(csvfile)
 	for row in reader:
-		if row['actor_name'] in actors_array:
-			source_id = generate_id(row['film_name'])
-			target_id = generate_id(row['actor_name'])
-			links.append({"source": source_id, "target": target_id})
+		source_id = generate_id(row['film_name'])
+		target_id = generate_id(row['actor_name'])
+		links.append({"source": source_id, "target": target_id})
 
 
 output = {"nodes":nodes,"links":links}
