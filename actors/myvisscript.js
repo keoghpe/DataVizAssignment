@@ -1,5 +1,6 @@
 var Network = function(myConfig) {
 	var mywidth, myheight, myactorcolour, myfilmcolour, myactorradius, myfilmradius, mycharge, mydistance;
+
 	if (myConfig) {
 		mywidth = myConfig.width;
 		myheight = myConfig.height;
@@ -10,14 +11,16 @@ var Network = function(myConfig) {
 		mycharge = myConfig.charge;
 		mydistance = myConfig.distance;
 	}
+
 	var width = mywidth || 1000;
 	var height = myheight || 1000;
 	var actorRadius = myactorradius || 5;
 	var filmRadius = myfilmradius || 5;
-	var actorColour = myactorcolour || "green";
-	var filmColour = myfilmcolour || "red";
+	var actorColour = myactorcolour || "#40B8AF";
+	var filmColour = myfilmcolour || "#B2577A";
 	var charge = mycharge || -100;
 	var linkDistance = mydistance || 50;
+	var theSelection = "";
 
 	var force = d3.layout.force();
 
@@ -34,8 +37,13 @@ var Network = function(myConfig) {
 
 	var groupCenters = null;
 
+	var zoom = d3.behavior.zoom()
+    .scaleExtent([1, 10])
+    .on("zoom", zoomed);
+
 	var network = function (selection, data) {
 		allData = setupData(data);
+		theSelection = selection;
 
 		var vis = d3.select(selection).append("svg")
 					.attr("width", width)
@@ -112,14 +120,19 @@ var Network = function(myConfig) {
 			.style("fill", function(d){return d.type === "actor" ? actorColour : filmColour;})
 			.style("stroke", "black")
 			.style("stroke-width", 1.0).on("mouseover", function (d) {
-				d3.select("svg").append("text")
-				.text(d.name)
+				d3.select(theSelection + " > svg").append("text")
+				.text(d.name.replace(/&amp;/g, '&'))
 				.attr("x", d.x+3)
 				.attr("y", d.y+10)
 				.attr("id", "nodedescription");
 			})
 			.on("mouseleave", function (d) {
 				d3.select("#nodedescription").remove();
+			})
+			.on("click", function (d) {
+				//location = "http://en.wikipedia.org/wiki/" + d.id;
+				var win = window.open("http://en.wikipedia.org/wiki/" + d.id.replace(/&amp;/g, '&'), '_blank');
+				win.focus();
 			});
 
 		node.exit().remove();
@@ -128,7 +141,7 @@ var Network = function(myConfig) {
 	var updateLinks = function() {
 		link = linksG.selectAll("line.link")
 			.data(curLinksData, function(d) {return d.source.id+"_"+d.target.id;});
-			
+
 		link.enter().append("line")
 			.attr("class", "link")
 			.attr("stroke", "#ddd")
@@ -151,26 +164,9 @@ var Network = function(myConfig) {
 			.attr("y2", function(d) { return d.target.y;});
 	};
 
+	function zoomed() {
+		d3.select(selection + " > svg").attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+	}
+
 	return network;
 };
-
-d3.json("parsedcommon.json", function(data) {
-
-	var myNetwork = Network({charge: -500, distance: 100});
-
-	myNetwork("#visone", data);
-});
-
-d3.json("parsed.json", function(data) {
-
-	var myNetwork = Network();
-
-	myNetwork("#vistwo", data);
-});
-
-d3.json("showmovies.json", function(data) {
-
-	var myNetwork = Network({filmRadius:5, actorRadius:2, distance: 30});
-
-	myNetwork("#visthree", data);
-});

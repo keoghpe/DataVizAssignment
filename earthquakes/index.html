@@ -7,7 +7,6 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script src="app.js"></script>
-
     <style type="text/css">
 
       .sidebar {
@@ -44,15 +43,15 @@
         stroke-width:1px;
       }
 
-      .axis path{ 
+      .axis path{
         fill:none;
         stroke: black;
       }
       .axis {
         font-size:8pt;
-        font-family:sans-serif; 
+        font-family:sans-serif;
       }
-      .tick { 
+      .tick {
         fill:none;
         stroke:black;
       }
@@ -65,44 +64,58 @@
   </head>
   <body ng-controller="AppCtrl">
     <div class="sidebar">
-      <p>Title: {{details.title}}</p>
       <p>Magnitude: {{details.mag}}</p>
-      <p>Place: {{details.place}}</p>
+      <p>{{details.place}}</p>
       <p>Time: {{details.time | date:'medium'}}</p>
       <p>Magnitude: {{details.mag}}</p>
     </div>
     <div class="content">
       <h1>Earthquake Map</h1>
-      <button ng-click="showreport = !showreport">Show Report</button>
-      <button ng-click="tohoku()">Tohoku</button>
-      <button ng-click="sichuan()">Sichuan</button>
-      <button ng-click="haiti()">Haiti</button>
-      <button ng-click="scale = scale/3">Reduce size</button>
-      <button ng-click="scale = scale*3">Increase size</button>
-
-      <form ng-submit="getEarthquakeData()">
-        Minimum Magnitude: <input ng-model="minmagnitude"></input>
-        Maximum Magnitude: <input ng-model="maxmagnitude"></input>
-        Start Year: <input ng-model="startdate.year"></input>
-        Start Month: <input ng-model="startdate.month"></input>
-        Start Day: <input ng-model="startdate.day"></input>
-        End Year: <input ng-model="enddate.year"></input>
-        End Month: <input ng-model="enddate.month"></input>
-        End Day: <input ng-model="enddate.day"></input>
-        <input type="submit" value="Get Data" ng-disabled="freeze">
-      </form>
       <img src="Images/omg.jpg" ng-show="error">
       <p class="error">{{error}}</p>
+      <button ng-click="tohoku()" type="button" class="btn btn-default" ng-class="">Tohoku</button>
+      <button ng-click="sichuan()" type="button" class="btn btn-default" ng-class="">Sichuan</button>
+      <button ng-click="haiti()" type="button" class="btn btn-default" ng-class="">Haiti</button>
+      <button ng-click="scale = scale/3" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Reduce size</button>
+      <button ng-click="scale = scale*3" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span> Increase size</button>
       <eq-visualisation></eq-visualisation>
       <eq-scatter></eq-scatter>
-      <div ng-show="showreport">
-        <h3>Report</h3>
-        <img src="Images/Rplot.png">
-        <p>I decided to rotate the projection 180 degrees to have the viewer focus on the pacific. I originally started by attempting to show size by using the radius of the circle and frequency by the opacity of the colour. However, when I showed this to people they immediately thought that the deeper colour is where the strongest earthquakes happen. I could load some interesting presets to show the data. This visualisation isn't getting the point I want to get across across really. I want to convey that the earthquakes that are happening really frequently are really insignificant but the ones happening infrequently are really destructive. I've decided to set up a rule where the blue and purple earthquakes can only get so big.
-      </p>
-      </div>
-      
+      <form ng-submit="getEarthquakeData()">
+          <div class="row">
+              <div class="col-xs-3">
+                  Minimum Magnitude: <input type="text" class="form-control" ng-model="minmagnitude"></input>
+              </div>
+              <div class="col-xs-3">
+                  Maximum Magnitude: <input type="text" class="form-control" ng-model="maxmagnitude"></input>
+              </div>
+          </div>
 
-    </div> 
+          <div class="row">
+              <div class="col-xs-2">
+                  Start Year: <input type="text" class="form-control" ng-model="startdate.year"></input>
+              </div>
+              <div class="col-xs-2">
+                  Start Month: <input type="text" class="form-control" ng-model="startdate.month"></input>
+              </div>
+              <div class="col-xs-2">
+                  Start Day: <input type="text" class="form-control" ng-model="startdate.day"></input>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-xs-2">
+                  End Year: <input type="text" class="form-control" ng-model="enddate.year"></input>
+              </div>
+              <div class="col-xs-2">
+                  End Month: <input type="text" class="form-control" ng-model="enddate.month"></input>
+              </div>
+              <div class="col-xs-2">
+                  End Day: <input type="text" class="form-control" ng-model="enddate.day"></input>
+              </div>
+          </div>
+
+          <input type="button" class="btn btn-success" type="submit" value="Get Data" ng-disabled="freeze">
+      </form>
+    </div>
   </body>
 </html>

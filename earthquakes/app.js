@@ -3,7 +3,7 @@ var earthquakeApp = angular.module('earthquakeApp', []);
 earthquakeApp.controller('AppCtrl', function AppCtrl($scope, $http) {
 
 	// initialize the model
-	$scope.minmagnitude = 5;
+	$scope.minmagnitude = 1;
 	$scope.maxmagnitude = 10;
 	$scope.freeze = false;
 	$scope.currentDataPoint = '';
@@ -66,6 +66,7 @@ earthquakeApp.controller('AppCtrl', function AppCtrl($scope, $http) {
 			month: 5,
 			day: 30
 		};
+
 		$scope.scale = 100000000;
 		$scope.getEarthquakeData();
 	};
@@ -139,7 +140,7 @@ earthquakeApp.directive('eqVisualisation', function() {
 
 			});
 
-			// whenever the bound 'exp' expression changes, execute this 
+			// whenever the bound 'exp' expression changes, execute this
 			scope.$watch('data', function(newVal, oldVal) {
 				svg.selectAll('circle').remove();
 				//.transition().duration(2000)

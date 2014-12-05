@@ -2,12 +2,32 @@
 <html>
 <head>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<style>
+	svg {
+		background-color: #222;
+	}
+	text {
+		fill: white;
+		font-family: verdana, sans-serif;
+	}
+	#actors-legend{
+		color: #40B8AF;
+	}
+	#films-legend{
+		color: #B2577A;
+	}
+	</style>
 </head>
 <body>
-	<h1>Movies n Shit</h1>
-	<div id="visone"></div>
-	<div id="vistwo"></div>
-	<div id="visthree"></div>
+	<div class="container">
+		<h1>Movies and Actors</h1>
+		<span id="actors-legend" class="glyphicon glyphicon-stop" aria-hidden="true"></span> Actors
+		<span id="films-legend" class="glyphicon glyphicon-stop" aria-hidden="true"></span> Movies
+		<div id="visone"></div>
+		<div id="vistwo"></div>
+		<div id="visthree"></div>
+	</div>
 	<script src="myvisscript.js"></script>
 </body>
 </html>
