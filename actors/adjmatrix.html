@@ -14,17 +14,18 @@ line {
   stroke: #fff;
 }
 
+text{
+    font: Arial;
+}
+
 text.active {
   fill: red;
 }
 
 </style>
-<script src="http://d3js.org/d3.v2.min.js?2.8.1"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
-<header>
-  <aside>April 10, 2012</aside>
-  <a href="../" rel="author">Mike Bostock</a>
-</header>
 
 <h1><i>Les Misérables</i> Co-occurrence</h1>
 
@@ -46,7 +47,7 @@ text.active {
 
 <script>
 
-var margin = {top: 80, right: 0, bottom: 10, left: 80},
+var margin = {top: 200, right: 0, bottom: 10, left: 150},
     width = 720,
     height = 720;
 
@@ -57,7 +58,7 @@ var x = d3.scale.ordinal().rangeBands([0, width]),
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .style("margin-left", -margin.left + "px")
+    .style("margin-left", margin.left + "px")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
