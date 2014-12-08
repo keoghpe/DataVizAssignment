@@ -23,16 +23,47 @@
 <p></p>
 <script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1004px; height: 869px;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ea&#47;earthquakes_3&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='earthquakes_3&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ea&#47;earthquakes_3&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div><div style='width:1004px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;'><div style='float:right; padding-right:8px;'><a href='http://www.tableausoftware.com/public/about-tableau-products?ref=https://public.tableausoftware.com/views/earthquakes_3/Dashboard1' target='_blank'>Learn About Tableau</a></div></div>
 
+<h3>Exploratory Visualisation in R</h3>
+<div class="row">
+    <div class="col-xs-6">
+        <img src="Images/Rplot.png">
+    </div>
+</div>
 <h3>Map Visualisation</h3>
+<div class="row">
+    <div class="col-xs-6">
+        <p>
+            I have included here a map visualisation of the earthquake data built in tableau to highlight the difficulty visualising earthquake data. If you show this to someone and ask them to point out where the largest earthquake occurred they would rightly point to Japan. However if you asked them to locate the second or third largest earthquakes on the map they might point to Mexico or another location on the map.
+        </p>
+        <p>
+            The magnitude of the earthquakes can be colour encoded but that still doesn't convey strongly enough the difference in the magnitude of the earthquakes. Moreover, since the magnitude of the earthquakes is measured using a log scale layman readers find it difficult to differentiate between the different magnitudes of earthquakes and their impact.
+        </p>
+    </div>
+</div>
 
-<p></p>
 
 <script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1004px; height: 869px;'><noscript><a href='#'><img alt='Dashboard 5 ' src='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ea&#47;earthquakes_3&#47;Dashboard5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='earthquakes_3&#47;Dashboard5' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ea&#47;earthquakes_3&#47;Dashboard5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div><div style='width:1004px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;'><div style='float:right; padding-right:8px;'><a href='http://www.tableausoftware.com/public/about-tableau-products?ref=https://public.tableausoftware.com/views/earthquakes_3/Dashboard5' target='_blank'>Learn About Tableau</a></div></div>
 
 <h2>D3.js Visualisation</h2>
-<img src="Images/Rplot.png">
-<p>I decided to rotate the projection 180 degrees to have the viewer focus on the pacific. I originally started by attempting to show size by using the radius of the circle and frequency by the opacity of the colour. However, when I showed this to people they immediately thought that the deeper colour is where the strongest earthquakes happen. I could load some interesting presets to show the data. This visualisation isn't getting the point I want to get across across really. I want to convey that the earthquakes that are happening really frequently are really insignificant but the ones happening infrequently are really destructive. I've decided to set up a rule where the blue and purple earthquakes can only get so big.
-</p>
+<div class="row">
+    <div class="col-xs-6">
+        <p>
+            With this in mind I designed a visualisation in D3 that attempts to convey the difference in magnitude of these earthquakes. I consider this to be an example of a persuasive and exploratory visualisation since it attempts to persuade the reader of the differences in the impact of the earthquakes and allows the reader to explore the data.
+        </p>
+        <p>
+            Along with the map visualisation I have include a scatterplot of the magnitude against time so the reader has something to contrast the visualisation with.
+        </p>
+        <p>
+            I have made use of the angular.js framework in making this visualisation. This has allowed me to connect directly to the earthquakes database and allows the reader to load in data for 3 present earthquakes; Tohoku 2011, Sichuan 2008 and Haiti 2010. The initial visualisation is for the Tohoku earthquake.
+        </p>
+        <p>
+            I have also included a form at the bottom of the visualisation which allows the reader to load earthquake data for dates of their choosing.
+        </p>
+        <p>
+            The visualisation is located <a href="./earthquakevis.html">here.</a>
+        </p>
+    </div>
+</div>
 
 </div>
 
