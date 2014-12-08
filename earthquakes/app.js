@@ -101,7 +101,6 @@ earthquakeApp.controller('AppCtrl', function AppCtrl($scope, $http) {
 		$scope.getEarthquakeData();
 	};
 
-	// get the commit data immediately
 	$scope.getEarthquakeData();
 });
 
@@ -140,7 +139,7 @@ earthquakeApp.directive('eqVisualisation', function() {
 
 			});
 
-			// whenever the bound 'exp' expression changes, execute this
+			
 			scope.$watch('data', function(newVal, oldVal) {
 				svg.selectAll('circle').remove();
 				//.transition().duration(2000)
