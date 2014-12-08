@@ -8,7 +8,7 @@ earthquakeApp.controller('AppCtrl', function AppCtrl($scope, $http) {
 	$scope.freeze = false;
 	$scope.currentDataPoint = '';
 	$scope.showreport = false;
-	$scope.scale = 10000000;
+	$scope.scale = 100000000;
 	$scope.details = {};
 	$scope.details.mag = 10;
 	$scope.startdate = {
