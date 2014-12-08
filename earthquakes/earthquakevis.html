@@ -9,21 +9,6 @@
     <script src="app.js"></script>
     <style type="text/css">
 
-      .sidebar {
-           position: fixed;
-           width: 100%;
-           height: 400px;
-           float: bottom;
-       }
-       .content {
-           margin-left: 200px;
-           height: 100%;
-           width: auto;
-           position: relative;
-           overflow: auto;
-           z-index: 1;
-       }
-
       h2{
         font-family: 'Helvetica';
       }
@@ -60,16 +45,23 @@
         fill: green;
         opacity: 1;
       }
+
+      #black-legend{
+          color: black;
+      }
+      #red-legend{
+          color: red;
+      }
+      #purple-legend{
+          color: purple;
+      }
+      #blue-legend{
+          color: blue;
+      }
     </style>
   </head>
   <body ng-controller="AppCtrl">
-    <div class="sidebar">
-      <p>Magnitude: {{details.mag}}</p>
-      <p>{{details.place}}</p>
-      <p>Time: {{details.time | date:'medium'}}</p>
-      <p>Magnitude: {{details.mag}}</p>
-    </div>
-    <div class="content">
+    <div class="container">
       <h1>Earthquake Map</h1>
       <img src="Images/omg.jpg" ng-show="error">
       <p class="error">{{error}}</p>
@@ -78,7 +70,25 @@
       <button ng-click="haiti()" type="button" class="btn btn-default" ng-class="">Haiti</button>
       <button ng-click="scale = scale/3" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Reduce size</button>
       <button ng-click="scale = scale*3" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span> Increase size</button>
+
+      <p>
+          <span id="blue-legend" class="glyphicon glyphicon-stop" aria-hidden="true"></span> Earthquakes with a magnitude less than 5. Slightly felt or not at all.
+      </p>
+      <p>
+          <span id="purple-legend" class="glyphicon glyphicon-stop" aria-hidden="true"></span> Earthquakes with a magnitude between 5 and 6. Felt by everyone with slight damage to buildings.
+      </p>
+      <p>
+          <span id="red-legend" class="glyphicon glyphicon-stop" aria-hidden="true"></span> Earthquakes with a magnitude between 6 and 7. Felt in wider areas. Death toll from 0 to 25,000.
+      </p>
+      <p>
+          <span id="black-legend" class="glyphicon glyphicon-stop" aria-hidden="true"></span> Earthquakes with a magnitude greater than 7. Felt across great distances with death tolls reaching 1 million.
+      </p>
+
       <eq-visualisation></eq-visualisation>
+      <p>Magnitude: {{details.mag}}</p>
+      <p>Location: {{details.place}}</p>
+      <p>Time: {{details.time | date:'medium'}}</p>
+      <p>Magnitude: {{details.mag}}</p>
       <eq-scatter></eq-scatter>
       <form ng-submit="getEarthquakeData()">
           <div class="row">
@@ -114,7 +124,7 @@
               </div>
           </div>
 
-          <input type="button" class="btn btn-success" type="submit" value="Get Data" ng-disabled="freeze">
+          <input type="submit" class="btn btn-success" type="submit" value="Get Data" ng-disabled="freeze">
       </form>
     </div>
   </body>

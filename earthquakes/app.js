@@ -27,6 +27,7 @@ earthquakeApp.controller('AppCtrl', function AppCtrl($scope, $http) {
 	$scope.url = url;
 
 	$scope.getEarthquakeData = function() {
+
 		var startDate = new Date($scope.startdate.year, $scope.startdate.month - 1, $scope.startdate.day);
 		var endDate = new Date($scope.enddate.year, $scope.enddate.month - 1, $scope.enddate.day);
 		$scope.url = url + "&minmagnitude=" + $scope.minmagnitude + "&maxmagnitude=" + $scope.maxmagnitude;
@@ -139,7 +140,7 @@ earthquakeApp.directive('eqVisualisation', function() {
 
 			});
 
-			
+
 			scope.$watch('data', function(newVal, oldVal) {
 				svg.selectAll('circle').remove();
 				//.transition().duration(2000)
