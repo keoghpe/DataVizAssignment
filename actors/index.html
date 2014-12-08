@@ -6,51 +6,86 @@
 <body>
 	<div class="container">
 		<h1>Movies and Actors</h1>
-
+		<div class="row">
+			<div class="col-xs-6">
+				<p>The actors and movies dataset was very large and made network visualisation in d3 time difficult. There were too many nodes for d3.js to handle so I reduced the dataset to be based around a small group of actors that I knew acted in movies together.</p>
+				<p>I began by making some visualisations in Tableau to answer simple questions about the dataset.</p>
+			</div>
+		</div>
 		<p></p>
 
 		<h2>Tableau Visualisations</h2>
 
-		<p></p>
+		<h3>Proportional Representations</h3>
+		<div class="row">
+			<div class="col-xs-6">
+				<p>This tree map attempts to answer the question: "Which of these movies had the greatest number of actors in the dataset?" Since the data remains in the range of 2 - 7 I feel that the tree map effectively encodes the data. It fits a lot of information into a small space. Using a bar chart for this information was less effective since it results in too many bars.</p>
+			</div>
+		</div>
 
 		<script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1004px; height: 869px;'><noscript><a href='#'><img alt='Dashboard 2 ' src='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='actors&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div><div style='width:1004px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;'><div style='float:right; padding-right:8px;'><a href='http://www.tableausoftware.com/public/about-tableau-products?ref=https://public.tableausoftware.com/views/actors/Dashboard2' target='_blank'>Learn About Tableau</a></div></div>
 
-		<p></p>
+		<div class="row">
+			<div class="col-xs-6">
+				<p>This next visualisation shows which actors acted in the most films. It's not that effective since the variance of the number of movies acted in is relatively low.</p>
+			</div>
+		</div>
 		<script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1004px; height: 869px;'><noscript><a href='#'><img alt='Dashboard 3 ' src='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard3&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='actors&#47;Dashboard3' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div><div style='width:1004px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;'><div style='float:right; padding-right:8px;'><a href='http://www.tableausoftware.com/public/about-tableau-products?ref=https://public.tableausoftware.com/views/actors/Dashboard3' target='_blank'>Learn About Tableau</a></div></div>
 
-		<p></p>
+		<div class="row">
+			<div class="col-xs-6">
+				<p>This is more effectively represented as a simple bar chart where values are ordered.</p>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1004px; height: 869px;'><noscript><a href='#'><img alt='Dashboard 2 ' src='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;mo&#47;moremovies&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='moremovies&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;mo&#47;moremovies&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div><div style='width:1004px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;'><div style='float:right; padding-right:8px;'><a href='http://www.tableausoftware.com/public/about-tableau-products?ref=https://public.tableausoftware.com/views/moremovies/Dashboard2' target='_blank'>Learn About Tableau</a></div></div>
 
+		<div class="row">
+			<div class="col-xs-6">
+				<p>The bar charts can also be colour encoded. This presents more information to the user but dilutes the clarity of the message. The chart on the right encodes more information but is less visually appealing. For this chart less is certainly more and I would likely represent this data using the simple monochrome bar chart.</p>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1004px; height: 869px;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;mo&#47;moremovies&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='moremovies&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;mo&#47;moremovies&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div><div style='width:1004px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;'><div style='float:right; padding-right:8px;'><a href='http://www.tableausoftware.com/public/about-tableau-products?ref=https://public.tableausoftware.com/views/moremovies/Dashboard1' target='_blank'>Learn About Tableau</a></div></div>
+		<p></p>
+		<h3>Changing Proportions Over Time</h3>
+
+		<div class="row">
+			<div class="col-xs-6">
+				<p>For changing a graph of changing proportions over time I decided to visualise an actors appearances over time. The first two visualisations I came up with were cluttered and difficult to read. They are both good examples of "un-visualisations".</p>
+			</div>
+		</div>
 		<script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1004px; height: 869px;'><noscript><a href='#'><img alt='Dashboard 6 ' src='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard6&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='actors&#47;Dashboard6' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard6&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div><div style='width:1004px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;'><div style='float:right; padding-right:8px;'><a href='http://www.tableausoftware.com/public/about-tableau-products?ref=https://public.tableausoftware.com/views/actors/Dashboard6' target='_blank'>Learn About Tableau</a></div></div>
 
+		<div class="row">
+			<div class="col-xs-6">
+				<p>I decided that a simple heat map gave a much clearer representation of the data over time. A user can immediately identify how many movies an actor acted in in a given year with the graphic below.</p>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1004px; height: 869px;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='actors&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div><div style='width:1004px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;'><div style='float:right; padding-right:8px;'><a href='http://www.tableausoftware.com/public/about-tableau-products?ref=https://public.tableausoftware.com/views/actors/Dashboard1' target='_blank'>Learn About Tableau</a></div></div>
 		<p></p>
-
+		<div class="row">
+			<div class="col-xs-6">
+				<p>Again I attempted to encode additional data over time. It is difficult to add more dimensions and communicate effectively; the first visualisation is noisy, the second one is better but not particularly striking.</p>
+			</div>
+		</div>
 		<script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1004px; height: 869px;'><noscript><a href='#'><img alt='Dashboard 4 ' src='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard4&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='actors&#47;Dashboard4' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard4&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div><div style='width:1004px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;'><div style='float:right; padding-right:8px;'><a href='http://www.tableausoftware.com/public/about-tableau-products?ref=https://public.tableausoftware.com/views/actors/Dashboard4' target='_blank'>Learn About Tableau</a></div></div>
-
-		<p></p>
 
 		<script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1004px; height: 869px;'><noscript><a href='#'><img alt='Dashboard 5 ' src='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='actors&#47;Dashboard5' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div><div style='width:1004px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;'><div style='float:right; padding-right:8px;'><a href='http://www.tableausoftware.com/public/about-tableau-products?ref=https://public.tableausoftware.com/views/actors/Dashboard5' target='_blank'>Learn About Tableau</a></div></div>
 
-		<p></p>
-
-		<script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1004px; height: 869px;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='869' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='actors&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;publicrevizit.tableausoftware.com&#47;static&#47;images&#47;ac&#47;actors&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div><div style='width:1004px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;'><div style='float:right; padding-right:8px;'><a href='http://www.tableausoftware.com/public/about-tableau-products?ref=https://public.tableausoftware.com/views/actors/Dashboard1' target='_blank'>Learn About Tableau</a></div></div>
-
-		<p></p>
 		<div class="row">
 			<div class="col-xs-6">
 				<h2>D3.js Visualisations</h2>
 
-				<p></p>
+				<p>The most interesting feature of this dataset is the level of interconnectedness between actors. In order to show the relationships between actors I decided to use two types of visualisation; a network graph and an adjacency matrix. </p>
 
-				<a href="adjmatrix.html" target="_blank">Adjacency Matrix</a>
-
-				<a href="actorsmovies.html" target="_blank">actors movies</a>
-				<p></p>
-				<a href="actors.html" target="_blank">actors</a>
-				<p></p>
-				<a href="movies.html" target="_blank">movies</a>
-				<p><a href="http://bost.ocks.org/mike/miserables/" target="_blank">here.</a></p>
-
-				<p></p>
+				<p>I decided to use these representations as they are both obviously good candidates for representing relationships in a network. Both of these visualisations required me to write scripts to parse the data into lists of nodes and links. While I had to write a lot of code to get the network visualisation to work. The adjacency matrix visualisation code was taken directly from <a href="http://bost.ocks.org/mike/miserables/" target="_blank">here.</a></p>
+				<p>Here's the <a href="adjmatrix.html" target="_blank">Adjacency Matrix visualisation.</a></p>
+				<p>I developed 3 network visualisations. The first is the simplest and only involves movies and actors in the set given above. The second shows all the additional movies an actor acted in. The third network visualisation includes additional actors that are in the movies from visualisation one. This has a lot more nodes and is a better example of visual art than something that conveys a lot of information.</p>
+				<p>One "Easter Egg" I have added to these visualisations is that when a reader clicks on a node it will bring them to the Wikipedia page associated with that node. This allows the reader to easily drill down further into the information presented by the visualisation. For a variety of reasons it doesn't work in every case but it works in most cases.</p>
+				<ul>
+					<a href="actorsmovies.html" target="_blank"><li>Network Visualisation 1</li></a>
+					<a href="movies.html" target="_blank"><li>Network Visualisation 2</li></a>
+					<a href="actors.html" target="_blank"><li>Network Visualisation 3</li></a>
+				</ul>
 			</div>
 		</div>
 		<hr />
