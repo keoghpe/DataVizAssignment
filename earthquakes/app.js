@@ -8,18 +8,18 @@ earthquakeApp.controller('AppCtrl', function AppCtrl($scope, $http) {
 	$scope.freeze = false;
 	$scope.currentDataPoint = '';
 	$scope.showreport = false;
-	$scope.scale = 1000000;
+	$scope.scale = 10000000;
 	$scope.details = {};
 	$scope.details.mag = 10;
 	$scope.startdate = {
-		year: 2014,
-		month: 11,
-		day: 16
+		year: 2011,
+		month: 3,
+		day: 10
 	};
 	$scope.enddate = {
-		year: 2014,
-		month: 11,
-		day: 23
+		year: 2011,
+		month: 3,
+		day: 13
 	};
 	$scope.active = 0;
 
@@ -72,7 +72,7 @@ earthquakeApp.controller('AppCtrl', function AppCtrl($scope, $http) {
 	};
 
 	$scope.tohoku = function() {
-		$scope.scale = 1000000;
+		$scope.scale = 10000000;
 		$scope.startdate = {
 			year: 2011,
 			month: 3,

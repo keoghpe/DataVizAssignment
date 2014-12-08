@@ -127,8 +127,9 @@ var Network = function(myConfig) {
 				.attr("id", "nodedescription");
 			})
 			.on("mouseleave", function (d) {
-				d3.select("#nodedescription").remove();
+				d3.selectAll("#nodedescription").remove();
 			})
+			.call(force.drag)
 			.on("click", function (d) {
 				//location = "http://en.wikipedia.org/wiki/" + d.id;
 				var win = window.open("http://en.wikipedia.org/wiki/" + d.id.replace(/&amp;/g, '&'), '_blank');
